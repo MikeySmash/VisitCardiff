@@ -1,5 +1,6 @@
 package com.example.android.visitcardiff;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -10,6 +11,7 @@ import android.support.v7.widget.Toolbar;
  * Displays a {@link ViewPager} where each page shows a different category.
  */
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +24,9 @@ public class MainActivity extends AppCompatActivity {
          */
 
         ViewPager viewPager = findViewById(R.id.viewpager);
-        com.example.android.visitcardiff.CategoryAdapter adapter =
-                new com.example.android.visitcardiff.CategoryAdapter(getSupportFragmentManager());
+        CategoryAdapter adapter =
+                new CategoryAdapter(getSupportFragmentManager(), this);
+
         viewPager.setAdapter(adapter);
 
         // Give the TabLayout the ViewPager
